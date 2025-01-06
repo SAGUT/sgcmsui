@@ -52,6 +52,7 @@ class Ui_MainWindow(object):
         __qtreewidgetitem.setText(0, u"1");
         self.asset_treewidget.setHeaderItem(__qtreewidgetitem)
         self.asset_treewidget.setObjectName(u"asset_treewidget")
+        self.asset_treewidget.setContextMenuPolicy(Qt.ContextMenuPolicy.CustomContextMenu)
         self.asset_treewidget.setRootIsDecorated(False)
         self.asset_treewidget.setHeaderHidden(True)
 

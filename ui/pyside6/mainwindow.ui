@@ -49,6 +49,9 @@
            <layout class="QVBoxLayout" name="verticalLayout">
             <item>
              <widget class="QTreeWidget" name="asset_treewidget">
+              <property name="contextMenuPolicy">
+               <enum>Qt::ContextMenuPolicy::CustomContextMenu</enum>
+              </property>
               <property name="rootIsDecorated">
                <bool>false</bool>
               </property>
