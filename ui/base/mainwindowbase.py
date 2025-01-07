@@ -43,6 +43,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.component_treewidget = QTabWidget(self.frame)
         self.component_treewidget.setObjectName(u"component_treewidget")
+        self.component_treewidget.setMaximumSize(QSize(16777214, 16777215))
+        self.component_treewidget.setContextMenuPolicy(Qt.ContextMenuPolicy.CustomContextMenu)
         self.tab_assets = QWidget()
         self.tab_assets.setObjectName(u"tab_assets")
         self.verticalLayout = QVBoxLayout(self.tab_assets)
@@ -63,16 +65,44 @@ class Ui_MainWindow(object):
         self.tab_components.setObjectName(u"tab_components")
         self.verticalLayout_2 = QVBoxLayout(self.tab_components)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.treeWidget_2 = QTreeWidget(self.tab_components)
+        self.treeWidget_components = QTreeWidget(self.tab_components)
         __qtreewidgetitem1 = QTreeWidgetItem()
         __qtreewidgetitem1.setText(0, u"1");
-        self.treeWidget_2.setHeaderItem(__qtreewidgetitem1)
-        self.treeWidget_2.setObjectName(u"treeWidget_2")
-        self.treeWidget_2.setHeaderHidden(True)
+        self.treeWidget_components.setHeaderItem(__qtreewidgetitem1)
+        self.treeWidget_components.setObjectName(u"treeWidget_components")
+        self.treeWidget_components.setHeaderHidden(True)
 
-        self.verticalLayout_2.addWidget(self.treeWidget_2)
+        self.verticalLayout_2.addWidget(self.treeWidget_components)
 
         self.component_treewidget.addTab(self.tab_components, "")
+        self.tab_configurations = QWidget()
+        self.tab_configurations.setObjectName(u"tab_configurations")
+        self.verticalLayout_3 = QVBoxLayout(self.tab_configurations)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.treeWidget_configurations = QTreeWidget(self.tab_configurations)
+        __qtreewidgetitem2 = QTreeWidgetItem()
+        __qtreewidgetitem2.setText(0, u"1");
+        self.treeWidget_configurations.setHeaderItem(__qtreewidgetitem2)
+        self.treeWidget_configurations.setObjectName(u"treeWidget_configurations")
+        self.treeWidget_configurations.setHeaderHidden(True)
+
+        self.verticalLayout_3.addWidget(self.treeWidget_configurations)
+
+        self.component_treewidget.addTab(self.tab_configurations, "")
+        self.tab_contacts = QWidget()
+        self.tab_contacts.setObjectName(u"tab_contacts")
+        self.verticalLayout_4 = QVBoxLayout(self.tab_contacts)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.treeWidget_contacts = QTreeWidget(self.tab_contacts)
+        __qtreewidgetitem3 = QTreeWidgetItem()
+        __qtreewidgetitem3.setText(0, u"1");
+        self.treeWidget_contacts.setHeaderItem(__qtreewidgetitem3)
+        self.treeWidget_contacts.setObjectName(u"treeWidget_contacts")
+        self.treeWidget_contacts.setHeaderHidden(True)
+
+        self.verticalLayout_4.addWidget(self.treeWidget_contacts)
+
+        self.component_treewidget.addTab(self.tab_contacts, "")
 
         self.horizontalLayout.addWidget(self.component_treewidget)
 
@@ -98,7 +128,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.component_treewidget.setCurrentIndex(0)
+        self.component_treewidget.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -108,6 +138,8 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"CMS Manager", None))
         self.component_treewidget.setTabText(self.component_treewidget.indexOf(self.tab_assets), QCoreApplication.translate("MainWindow", u"Assets", None))
         self.component_treewidget.setTabText(self.component_treewidget.indexOf(self.tab_components), QCoreApplication.translate("MainWindow", u"Compoments", None))
+        self.component_treewidget.setTabText(self.component_treewidget.indexOf(self.tab_configurations), QCoreApplication.translate("MainWindow", u"Configuration", None))
+        self.component_treewidget.setTabText(self.component_treewidget.indexOf(self.tab_contacts), QCoreApplication.translate("MainWindow", u"Contacts", None))
         self.menuFile.setTitle(QCoreApplication.translate("MainWindow", u"File", None))
     # retranslateUi
 

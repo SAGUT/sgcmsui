@@ -11,6 +11,9 @@ from ..Controller.mdicontroller import MDIController
 from ..Controller.contacttreecontroller import ContactTreeController
 '''
 from controller.assetcontroller import AssetController
+from controller.componentcontroller import ComponentController
+from controller.configurationcontroller import ConfigurationController
+from controller.contactcontroller import ContactController
 from sgcmslib.database.cmsdbclient import CMSDBClient
 class CMSManagerMain(QtWidgets.QMainWindow,Ui_MainWindow):
     def __init__(self,parent=None):
@@ -25,7 +28,6 @@ class CMSManagerMain(QtWidgets.QMainWindow,Ui_MainWindow):
         #self.logger.debug('initUI started')
         #self.mdiController = MDIController(self.mdiArea,self.cmsdb)
         self.assetTreeController = AssetController(self.asset_treewidget,self.cmsdb,None)
-        #self.componentTreeController = ComponentTreeController(self.treeWidget_components,self.cmsdb,self.mdiController)
-        #self.moodelTreeController = ModelTreeController(self.treeWidget_model,self.cmsdb,self.mdiController)
-        #self.contactTreeController = ContactTreeController(self.treeWidget_contact,self.cmsdb,self.mdiController)
-        #self.logger.debug('initUI finished')
+        self.componentTreeController=ComponentController(self.treeWidget_components,self.cmsdb,None)
+        self.configurationTreeController=ConfigurationController(self.treeWidget_configurations,self.cmsdb,None)
+        self.contactTreeController=ContactController(self.treeWidget_contacts,self.cmsdb,None)
