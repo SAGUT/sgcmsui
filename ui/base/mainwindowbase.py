@@ -55,7 +55,7 @@ class Ui_MainWindow(object):
         self.asset_treewidget.setHeaderItem(__qtreewidgetitem)
         self.asset_treewidget.setObjectName(u"asset_treewidget")
         self.asset_treewidget.setContextMenuPolicy(Qt.ContextMenuPolicy.CustomContextMenu)
-        self.asset_treewidget.setRootIsDecorated(False)
+        self.asset_treewidget.setRootIsDecorated(True)
         self.asset_treewidget.setHeaderHidden(True)
 
         self.verticalLayout.addWidget(self.asset_treewidget)
@@ -128,7 +128,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.component_treewidget.setCurrentIndex(3)
+        self.component_treewidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

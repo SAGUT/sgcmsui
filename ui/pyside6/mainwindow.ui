@@ -49,7 +49,7 @@
            <enum>Qt::ContextMenuPolicy::CustomContextMenu</enum>
           </property>
           <property name="currentIndex">
-           <number>3</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_assets">
            <attribute name="title">
@@ -62,7 +62,7 @@
                <enum>Qt::ContextMenuPolicy::CustomContextMenu</enum>
               </property>
               <property name="rootIsDecorated">
-               <bool>false</bool>
+               <bool>true</bool>
               </property>
               <property name="headerHidden">
                <bool>true</bool>
