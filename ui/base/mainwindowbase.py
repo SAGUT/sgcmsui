@@ -57,6 +57,7 @@ class Ui_MainWindow(object):
         self.asset_treewidget.setContextMenuPolicy(Qt.ContextMenuPolicy.CustomContextMenu)
         self.asset_treewidget.setRootIsDecorated(True)
         self.asset_treewidget.setHeaderHidden(True)
+        self.asset_treewidget.setExpandsOnDoubleClick(False)
 
         self.verticalLayout.addWidget(self.asset_treewidget)
 
@@ -71,6 +72,7 @@ class Ui_MainWindow(object):
         self.treeWidget_components.setHeaderItem(__qtreewidgetitem1)
         self.treeWidget_components.setObjectName(u"treeWidget_components")
         self.treeWidget_components.setHeaderHidden(True)
+        self.treeWidget_components.setExpandsOnDoubleClick(False)
 
         self.verticalLayout_2.addWidget(self.treeWidget_components)
 
@@ -85,6 +87,7 @@ class Ui_MainWindow(object):
         self.treeWidget_configurations.setHeaderItem(__qtreewidgetitem2)
         self.treeWidget_configurations.setObjectName(u"treeWidget_configurations")
         self.treeWidget_configurations.setHeaderHidden(True)
+        self.treeWidget_configurations.setExpandsOnDoubleClick(False)
 
         self.verticalLayout_3.addWidget(self.treeWidget_configurations)
 
@@ -99,6 +102,7 @@ class Ui_MainWindow(object):
         self.treeWidget_contacts.setHeaderItem(__qtreewidgetitem3)
         self.treeWidget_contacts.setObjectName(u"treeWidget_contacts")
         self.treeWidget_contacts.setHeaderHidden(True)
+        self.treeWidget_contacts.setExpandsOnDoubleClick(False)
 
         self.verticalLayout_4.addWidget(self.treeWidget_contacts)
 

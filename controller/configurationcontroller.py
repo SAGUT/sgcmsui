@@ -15,7 +15,7 @@ class ConfigurationController:
 
     def initTree(self):
         logging.debug('initTree started')
-        #self.treewidget.itemDoubleClicked.connect(self.onitemDoubleClicked)
+        self.treewidget.itemDoubleClicked.connect(self.onitemDoubleClicked)
         #self.treewidget.customContextMenuRequested.connect(self.onCustomMenu)
         treeitems=self.cmsdb.getHierarchy('cmsconfigurations')
         for dbid,treeitem in treeitems.items():
@@ -44,3 +44,8 @@ class ConfigurationController:
         self.icons[9]=QtGui.QIcon("ui/icons/gearbox64.png")
         self.icons[10]=QtGui.QIcon("ui/icons/generator64.png")
         self.icons[11]=QtGui.QIcon("ui/icons/bearing64.png")
+
+    
+    def onitemDoubleClicked(self, item, column):
+        logging.debug('onItemClicked started')
+        print(item.text(0),item.data(0,Qt.UserRole))

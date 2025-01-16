@@ -15,7 +15,7 @@ class ComponentController:
 
     def initTree(self):
         logging.debug('initTree started')
-        #self.treewidget.itemDoubleClicked.connect(self.onitemDoubleClicked)
+        self.treewidget.itemDoubleClicked.connect(self.onitemDoubleClicked)
         #self.treewidget.customContextMenuRequested.connect(self.onCustomMenu)
         treeitems=self.cmsdb.getHierarchy('components')
         for dbid,treeitem in treeitems.items():
@@ -55,3 +55,9 @@ class ComponentController:
                             "UK":QtGui.QIcon("ui/icons/Countries/UK.png")}
         self.icons[17]=QtGui.QIcon("ui/icons/group.png")
         self.icons[18]=QtGui.QIcon("ui/icons/person.png")
+
+    def onitemDoubleClicked(self, item, column):
+        logging.debug('onItemClicked started')
+        print(item.text(0),item.data(0,Qt.UserRole))
+        #if item.data(0,Qt.UserRole)["type"]==28:
+        self.mdicontroller.addSubWindow(item.data(0,Qt.UserRole))

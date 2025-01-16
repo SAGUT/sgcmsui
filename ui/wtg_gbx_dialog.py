@@ -12,6 +12,12 @@ class WTG_GBX_Dialog(QDialog,Ui_dialog_wtg_gbx):
     def initUI(self):
         self.logger = logging.getLogger(__name__)
         self.logger.debug('initUI started')
-        self.buttonBox.accepted.connect(self.accept)
-        self.buttonBox.rejected.connect(self.reject)
+        self.buttonBox.accepted.connect(self.onAccept)
+        self.buttonBox.rejected.connect(self.onReject)
         self.logger.debug('initUI finished')
+
+    def onAccept(self):
+        print('OK button pressed')
+        
+    def onReject(self):
+        print('Cancel button pressed')

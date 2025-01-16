@@ -15,7 +15,7 @@ class ContactController:
 
     def initTree(self):
         logging.debug('initTree started')
-        #self.treewidget.itemDoubleClicked.connect(self.onitemDoubleClicked)
+        self.treewidget.itemDoubleClicked.connect(self.onitemDoubleClicked)
         #self.treewidget.customContextMenuRequested.connect(self.onCustomMenu)
         treeitems=self.cmsdb.getHierarchy('contactroot')
         for dbid,treeitem in treeitems.items():
@@ -57,3 +57,7 @@ class ContactController:
                             "UK":QtGui.QIcon("ui/icons/Countries/UK.png")}
         self.icons[17]=QtGui.QIcon("ui/icons/group.png")
         self.icons[18]=QtGui.QIcon("ui/icons/person.png")
+
+    def onitemDoubleClicked(self, item, column):
+        logging.debug('onItemClicked started')
+        print(item.text(0),item.data(0,Qt.UserRole))

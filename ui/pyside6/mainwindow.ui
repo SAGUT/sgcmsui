@@ -67,6 +67,9 @@
               <property name="headerHidden">
                <bool>true</bool>
               </property>
+              <property name="expandsOnDoubleClick">
+               <bool>false</bool>
+              </property>
               <column>
                <property name="text">
                 <string notr="true">1</string>
@@ -85,6 +88,9 @@
              <widget class="QTreeWidget" name="treeWidget_components">
               <property name="headerHidden">
                <bool>true</bool>
+              </property>
+              <property name="expandsOnDoubleClick">
+               <bool>false</bool>
               </property>
               <column>
                <property name="text">
@@ -105,6 +111,9 @@
               <property name="headerHidden">
                <bool>true</bool>
               </property>
+              <property name="expandsOnDoubleClick">
+               <bool>false</bool>
+              </property>
               <column>
                <property name="text">
                 <string notr="true">1</string>
@@ -123,6 +132,9 @@
              <widget class="QTreeWidget" name="treeWidget_contacts">
               <property name="headerHidden">
                <bool>true</bool>
+              </property>
+              <property name="expandsOnDoubleClick">
+               <bool>false</bool>
               </property>
               <column>
                <property name="text">

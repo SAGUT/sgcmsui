@@ -90,6 +90,7 @@ class AssetController:
     def onitemDoubleClicked(self, item, column):
         logging.debug('onItemClicked started')
         print(item.text(0),item.data(0,Qt.UserRole))
+        self.mdicontroller.addSubWindow(item.data(0,Qt.UserRole))
 
     def onCustomMenu(self, position):
         logging.debug('onCustomMenu started')
