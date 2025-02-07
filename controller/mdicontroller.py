@@ -5,9 +5,11 @@ from ui.wtgtype_dialog import WTGTypeDialog
 from ui.testdialog import TestDialog
 from .subcontroller.wtgtypecontroller import WTGTypeController
 from .subcontroller.bachmanncontroller import BachmannCMSController
+from .subcontroller.bkvcontroller import BKVCMSController
 class MDIController:
-    def __init__(self, mdiArea,cmsdb):
+    def __init__(self, mdiArea,cmsdb,auraapi):
         self.cmsdb = cmsdb
+        self.auraapi=auraapi
         self.mdiArea = mdiArea
         self.children={}
         self.subcontroller={}
@@ -15,7 +17,9 @@ class MDIController:
 
     def setupSubController(self):
         self.subcontroller[28]=WTGTypeController(self.cmsdb,self) 
+        self.subcontroller[4]=BKVCMSController(self.cmsdb,self)
         self.subcontroller[6]=BachmannCMSController(self.cmsdb,self)  
+        
 
 
     def addSubWindow(self,objectdata):

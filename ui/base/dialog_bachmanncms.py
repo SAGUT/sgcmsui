@@ -24,9 +24,9 @@ class Ui_Dialog_BachmannCMS(object):
     def setupUi(self, Dialog_BachmannCMS):
         if not Dialog_BachmannCMS.objectName():
             Dialog_BachmannCMS.setObjectName(u"Dialog_BachmannCMS")
-        Dialog_BachmannCMS.resize(800, 530)
-        Dialog_BachmannCMS.setMinimumSize(QSize(800, 530))
-        Dialog_BachmannCMS.setMaximumSize(QSize(800, 530))
+        Dialog_BachmannCMS.resize(750, 530)
+        Dialog_BachmannCMS.setMinimumSize(QSize(750, 530))
+        Dialog_BachmannCMS.setMaximumSize(QSize(750, 530))
         self.verticalLayout = QVBoxLayout(Dialog_BachmannCMS)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.tabWidget = QTabWidget(Dialog_BachmannCMS)

@@ -89,7 +89,7 @@ class AssetController:
     
     def onitemDoubleClicked(self, item, column):
         logging.debug('onItemClicked started')
-        print(item.text(0),item.data(0,Qt.UserRole))
+        #print(item.text(0),item.data(0,Qt.UserRole))
         self.mdicontroller.addSubWindow(item.data(0,Qt.UserRole))
 
     def onCustomMenu(self, position):
@@ -98,7 +98,7 @@ class AssetController:
         indexes=self.treewidget.selectedIndexes()
         if not indexes is None:
             data=indexes[0].data(Qt.UserRole)
-            print(data,data['id'])
+            #print(data,data['id'])
             if data['id'] in self.treenodes:
                 treeitem=self.treenodes[data['id']]
                 if data['type']==3:
@@ -127,7 +127,7 @@ class AssetController:
         selecteditem=menu.exec_(self.treewidget.viewport().mapToGlobal(position))
         children={}
         if not selecteditem is None:
-            print(selecteditem.text())
+            #print(selecteditem.text())
             for i in range(item.childCount()):
                     print(item.child(i).text(0),item.child(i).data(0,Qt.UserRole))
                     children[item.child(i).text(0)]=item.child(i).data(0,Qt.UserRole)
@@ -140,4 +140,4 @@ class AssetController:
             dialog=WTG_GBX_Dialog(config)
             
             button=dialog.exec_()
-            print('Gearbox',button)
+            #print('Gearbox',button)

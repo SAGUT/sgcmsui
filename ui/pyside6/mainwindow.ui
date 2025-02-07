@@ -149,7 +149,11 @@
         </item>
        </layout>
       </widget>
-      <widget class="QMdiArea" name="mdiArea"/>
+      <widget class="QMdiArea" name="mdiArea">
+       <property name="sizeAdjustPolicy">
+        <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+       </property>
+      </widget>
      </widget>
     </item>
    </layout>

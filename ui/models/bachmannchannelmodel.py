@@ -36,7 +36,7 @@ class BachmannCMSTableModel(QAbstractTableModel):
 
         if role == Qt.DisplayRole:
             if column == 0:
-                date = self.input_dates[row].toPython()
+                date = self.input_dates[row]#.toPython()
                 return str(date)[:-3]
             elif column == 1:
                 magnitude = self.input_magnitudes[row]

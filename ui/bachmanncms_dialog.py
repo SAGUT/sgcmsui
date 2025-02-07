@@ -6,10 +6,11 @@ from.models.bachmannchannelmodel import BachmannCMSTableModel
 import pendulum
 
 class BachmannCMSDialog(QDialog,Ui_Dialog_BachmannCMS):
-    def __init__(self,objectdata,cmsdata,mdicontroller):
+    def __init__(self,objectdata,cmsdata,tablemodel,mdicontroller):
         super().__init__()
         self.objectdata = objectdata
         self.cmsdata = cmsdata
+        self.tablemodel = tablemodel
         self.mdicontroller = mdicontroller
         self.setupUi(self)
         self.initUI()
@@ -18,6 +19,9 @@ class BachmannCMSDialog(QDialog,Ui_Dialog_BachmannCMS):
     def initUI(self):
         self.logger = logging.getLogger(__name__)
         self.logger.debug('initUI started')
+        self.buttonBox.accepted.connect(self.onAccept)
+        self.buttonBox.rejected.connect(self.onReject)
+        self.closeEvent = self.CloseEvent
         self.label_site.setText(self.cmsdata.site)
         self.label_wtg.setText(self.cmsdata.wtg)
         self.lineEdit_name.setText(str(self.cmsdata.name))
@@ -37,34 +41,44 @@ class BachmannCMSDialog(QDialog,Ui_Dialog_BachmannCMS):
             print(self.cmsdata.lastfilecheck)
         
         self.label_lastfile.setText(lastfile)
+        '''
         # Getting the Model
         data=[[],[]]
         data[0]=['1.jan','2.jan','3.jan','4.jan','5.jan']
-        data[1]=['1','2','3','4','5']
+        data[1]=[1.0,2.0,3.0,4.0,5.0]
         self.model = BachmannCMSTableModel(data)
-
+        '''
         # Creating a QTableView
         
-        self.tableView.setModel(self.model)
+        self.tableView.setModel(self.tablemodel)
+        self.tableView.setColumnHidden(0, True)
+        self.tableView.setColumnHidden(1, True)
+        self.tableView.setColumnHidden(2, True)
 
-        #self.publishTable()
-
-
-    def publishTable(self):
-        self.logger.debug('publishTable started')
+    def CloseEvent(self, event):
+        print("X is clicked")
         
-        colnames=['number','identifier','label','speedlabel','powerlabel']
-        for i in range(0,5):
-            self.tableView.a  .insertColumn(i)
-            self.tableView.setHorizontalHeaderItem(i, QListWidgetItem(colnames[i]))
-        '''
-        for key,value in self.cmsdata.__dict__.items():
-            if key not in ['id','site','wtg','name','apiid','identity','vesname','commissioned','lastfilecheck']:
-                rowPosition = self.tableWidget.rowCount()
-                self.tableWidget.insertRow(rowPosition)
-                self.tableWidget.setItem(rowPosition, 0, QListWidgetItem(key))
-                self.tableWidget.setItem(rowPosition, 1, QListWidgetItem(str(value)))
-        '''
-        self.logger.debug('publishTable finished')
+        self.cmsdata.update = False
+        self.mdicontroller.removeMDIChild(self.objectdata)
+
+    def onAccept(self):
+        print('OK button pressed')
+        #self.close()
+        self.closeHandled=True
+        self.mdicontroller.closeSubWindow(self.objectdata,self.tablemodel,self.update)
+        #self.close()
+        
+    def onReject(self):
+        print('Cancel button pressed')
+        self.update = False
+        #self.close()
+        self.closeHandled=True
+        self.mdicontroller.closeSubWindow(self.objectdata,self.tablemodel,self.update )
+        #self.close()
+
+
+   
+
+    
 
         

@@ -19,7 +19,7 @@ class ConfigurationController:
         #self.treewidget.customContextMenuRequested.connect(self.onCustomMenu)
         treeitems=self.cmsdb.getHierarchy('cmsconfigurations')
         for dbid,treeitem in treeitems.items():
-            print(treeitem)
+            #print(treeitem)
             if treeitem['object_level']==1:
                 self.treenodes[dbid]=QtWidgets.QTreeWidgetItem(self.treewidget, [treeitem['object_name']])
                 self.treenodes[dbid].setData(0,Qt.UserRole,{"id":dbid,"type":treeitem['object_type'],"parent":treeitem['object_parent']})
